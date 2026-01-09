@@ -1,7 +1,8 @@
+// ... imports ...
 import TechStackScroll from "@/components/TechStackScroll";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import HeroTransition from "@/components/sections/HeroTransition";
+// HeroTransition import removed
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
 import Skills from "@/components/sections/Skills";
@@ -23,7 +24,7 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 bg-black">
-        <HeroTransition />
+        {/* HeroTransition removed */}
         <About />
         <Experience />
         <Skills />
