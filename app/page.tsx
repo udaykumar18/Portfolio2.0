@@ -1,8 +1,8 @@
 // ... imports ...
-import TechStackScroll from "@/components/TechStackScroll";
+// TechStackScroll import removed
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-// HeroTransition import removed
+import HeroTransition from "@/components/sections/HeroTransition";
 import About from "@/components/sections/About";
 import Experience from "@/components/sections/Experience";
 import Skills from "@/components/sections/Skills";
@@ -15,16 +15,9 @@ export default function Home() {
     <main className="min-h-screen bg-black overflow-x-hidden">
       <Navbar />
 
-      {/* 
-        The TechStackScroll component handles the main storytelling experience.
-        It occupies a large scroll height (500vh) to allow for the animation.
-      */}
-      <div id="top">
-        <TechStackScroll />
-      </div>
-
+      {/* HeroTransition restored */}
       <div className="relative z-10 bg-black">
-        {/* HeroTransition removed */}
+        <HeroTransition />
         <About />
         <Experience />
         <Skills />
