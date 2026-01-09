@@ -144,42 +144,41 @@ export default function TechStackScroll() {
 
     return (
         <div className="relative h-screen bg-black">
-            {!isAnimationComplete && (
-                <div className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden">
+            <div className={`${isAnimationComplete ? 'absolute top-0' : 'fixed'} inset-0 z-50 bg-black flex items-center justify-center overflow-hidden`}>
 
-                    {/* Loading Spinner */}
-                    {isLoading && (
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-50">
-                            <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4" />
-                            <p className="font-mono text-sm tracking-widest text-white/50">LOADING STACK... {Math.round((loadedCount / FRAME_COUNT) * 100)}%</p>
-                        </div>
-                    )}
-
-                    <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-contain" />
-
-                    {/* Overlay Text Logic */}
-                    <TextSection progress={progress} />
-
-                    {/* Progress indicator */}
-                    <div className="absolute top-0 left-0 right-0 h-1 bg-gray-800 z-50">
-                        <div
-                            className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transition-all duration-100"
-                            style={{ width: `${progress * 100}%` }}
-                        />
+                {/* Loading Spinner */}
+                {isLoading && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-center text-white z-50">
+                        <div className="w-16 h-16 border-4 border-blue-500 border-t-transparent rounded-full animate-spin mb-4" />
+                        <p className="font-mono text-sm tracking-widest text-white/50">LOADING STACK... {Math.round((loadedCount / FRAME_COUNT) * 100)}%</p>
                     </div>
+                )}
 
-                    {/* Debug info */}
-                    <div className="absolute bottom-4 right-4 bg-black/80 text-white px-4 py-2 rounded text-sm font-mono">
-                        Frame: {Math.floor((scrollProgress / 100) * FRAME_COUNT) + 1}/{FRAME_COUNT} | Progress: {Math.round(scrollProgress)}%
-                    </div>
+                <canvas ref={canvasRef} className="absolute inset-0 w-full h-full object-contain" />
 
-                    {/* Instruction */}
-                    <div className="absolute bottom-4 left-4 bg-black/80 text-white/60 px-4 py-2 rounded text-sm font-mono">
-                        Scroll to explore →
-                    </div>
+                {/* Overlay Text Logic */}
+                <TextSection progress={progress} />
+
+                {/* Progress indicator */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gray-800 z-50">
+                    <div
+                        className="h-full bg-gradient-to-r from-blue-500 via-purple-500 to-orange-500 transition-all duration-100"
+                        style={{ width: `${progress * 100}%` }}
+                    />
                 </div>
-            )}
+
+                {/* Debug info */}
+                <div className="absolute bottom-4 right-4 bg-black/80 text-white px-4 py-2 rounded text-sm font-mono">
+                    Frame: {Math.floor((scrollProgress / 100) * FRAME_COUNT) + 1}/{FRAME_COUNT} | Progress: {Math.round(scrollProgress)}%
+                </div>
+
+                {/* Instruction */}
+                <div className="absolute bottom-4 left-4 bg-black/80 text-white/60 px-4 py-2 rounded text-sm font-mono">
+                    Scroll to explore →
+                </div>
+            </div>
         </div>
+
     );
 }
 
