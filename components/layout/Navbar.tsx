@@ -56,11 +56,11 @@ export default function Navbar() {
                 animate={hidden ? "hidden" : "visible"}
                 transition={{ duration: 0.35, ease: "easeInOut" }}
                 className={cn(
-                    "fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 transition-colors duration-300",
+                    "fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 py-4 transition-colors duration-300",
                     isScrolled || isMobileMenuOpen ? "backdrop-blur-md bg-black/50 border-b border-white/10" : "bg-transparent"
                 )}
             >
-                <a href="#" onClick={(e) => scrollToSection(e, "#top")} className="text-xl font-bold tracking-tighter text-white z-50 relative">
+                <a href="#" onClick={(e) => scrollToSection(e, "#top")} className="text-xl font-bold tracking-tighter text-white z-[100] relative">
                     PORTFOLIO<span className="text-blue-500">.</span>
                 </a>
 
@@ -91,7 +91,7 @@ export default function Navbar() {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                    className="md:hidden text-white z-50 relative p-2"
+                    className="md:hidden text-white z-[100] relative p-2"
                 >
                     {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
@@ -105,7 +105,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: "-100%" }}
                         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                        className="fixed inset-0 z-40 bg-black flex flex-col items-center justify-center space-y-8 md:hidden"
+                        className="fixed inset-0 z-[90] bg-black flex flex-col items-center justify-center space-y-8 md:hidden"
                     >
                         <ul className="flex flex-col items-center gap-6">
                             {navLinks.map((link) => (
