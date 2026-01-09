@@ -78,6 +78,11 @@ export default function TechStackScroll() {
                 return;
             }
 
+            // If animation is complete and we are not at the top, allow normal scroll (don't hijack)
+            if (isAnimationComplete && window.scrollY > 0) {
+                return;
+            }
+
             // If at the start (progress = 0) and scrolling up, allow normal scroll
             if (scrollProgress === 0 && e.deltaY < 0) {
                 return;
